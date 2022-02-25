@@ -1,9 +1,9 @@
 {
   "name": "npm-passjs",
-  "version": "1.0.0",
-   "description": "Simple, lightweight adn customizable library for generating unique and secure passwords.",
-   "main": "lib/index.js",
-   "types": "lib/index.d.ts",
+  "version": "0.0.1",
+  "description": "Simple, lightweight and customizable library to generate unique and strong passwords that can be recovered by knowing the secret word.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
@@ -19,7 +19,13 @@
     "type": "git",
     "url": "git+https://github.com/igarciadev/npm-passjs.git"
   },
-  "keywords": ["password", "generator", "random", "secure", "unique"],
+  "keywords": [
+    "password",
+    "generator",
+    "random",
+    "secure",
+    "unique"
+  ],
   "author": "Isaac García",
   "license": "ISC",
   "bugs": {
@@ -27,7 +33,9 @@
   },
   "homepage": "https://github.com/igarciadev/npm-passjs#readme",
   "devDependencies": {
+    "@types/crypto-js": "^4.1.0",
     "@types/jest": "^27.4.0",
+    "crypto-js": "^4.1.1",
     "jest": "^27.5.1",
     "prettier": "^2.5.1",
     "ts-jest": "^27.1.3",
