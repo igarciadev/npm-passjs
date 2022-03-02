@@ -22,6 +22,8 @@ class PasswordJS {
 
     generate(keyConfig: KeyConfigJS, secret: string): string {
 
+        keyConfig = new KeyConfigJS(keyConfig);
+
         if (!keyConfig.upper && !keyConfig.lower && !keyConfig.number && !keyConfig.symbol) {
             keyConfig.lower = true;
         }
