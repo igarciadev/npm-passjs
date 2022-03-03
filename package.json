@@ -1,7 +1,7 @@
 {
-  "name": "npm-passjs",
-  "version": "0.0.3-beta.0",
-  "description": "Simple, lightweight and customizable library to generate unique and strong passwords that can be recovered by knowing the secret word.",
+  "name": "passjs-generator",
+  "version": "1.0.0",
+  "description": "Simple, lightweight and customizable library to generate unique, strong and recoverable passwords.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
