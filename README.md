@@ -1,6 +1,6 @@
 # PassJS-Generator
 
-Simple, lightweight and customizable library to generate unique, strong and recoverable passwords.
+Simple and lightweight library to generate unique, secure, recoverable and customizable cryptographic passwords.
 
 ## Install
 
