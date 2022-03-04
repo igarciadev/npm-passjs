@@ -1,6 +1,6 @@
 {
   "name": "passjs-generator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple, lightweight and customizable library to generate unique, strong and recoverable passwords.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -34,12 +34,7 @@
     "secure password"
   ],
   "author": "Isaac García",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/mit-license.php"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/igarciadev/npm-passjs/issues"
   },
