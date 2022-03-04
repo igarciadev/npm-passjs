@@ -1,6 +1,6 @@
 {
   "name": "passjs-generator",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Simple, lightweight and customizable library to generate unique, strong and recoverable passwords.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,10 +21,17 @@
   },
   "keywords": [
     "password",
+    "pass",
     "generator",
     "random",
     "secure",
-    "unique"
+    "unique",
+    "password generator",
+    "random password",
+    "strong password",
+    "recoverable password",
+    "customizable password",
+    "secure password"
   ],
   "author": "Isaac García",
   "licenses": [
