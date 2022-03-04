@@ -1,6 +1,6 @@
 {
   "name": "passjs-generator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple and lightweight library to generate unique, secure, recoverable and customizable cryptographic passwords.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -41,10 +41,12 @@
     "url": "https://github.com/igarciadev/npm-passjs/issues"
   },
   "homepage": "https://github.com/igarciadev/npm-passjs#readme",
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  },
   "devDependencies": {
     "@types/crypto-js": "^4.1.0",
     "@types/jest": "^27.4.0",
-    "crypto-js": "^4.1.1",
     "jest": "^27.5.1",
     "prettier": "^2.5.1",
     "ts-jest": "^27.1.3",
