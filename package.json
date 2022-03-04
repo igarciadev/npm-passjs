@@ -1,6 +1,6 @@
 {
   "name": "passjs-generator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple and lightweight library to generate unique, secure, recoverable and customizable cryptographic passwords.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
