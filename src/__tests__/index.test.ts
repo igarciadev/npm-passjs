@@ -59,11 +59,11 @@ describe('Defining KeyConfig with empty salt', () => {
         minSymbols: 2
     }
 
-    test('should throw RequiredError with message \'Salt value is required. KeyConfig must have a salt value. Please, provide one salt value.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a salt value. Please, provide one salt value.\'', () => {
         try {
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Salt value is required. KeyConfig must have a salt value. Please, provide one salt value.');
+            expect(e.message).toBe('KeyConfig must have a salt value. Please, provide one salt value.');
         }
     });
 });
@@ -84,11 +84,11 @@ describe('Defining KeyConfig with empty iv', () => {
         minSymbols: 2
     }
 
-    test('should throw RequiredError with message \'IV value is required. KeyConfig must have a IV value. Please, provide one IV value.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a IV value. Please, provide one IV value.\'', () => {
         try {
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('IV value is required. KeyConfig must have a IV value. Please, provide one IV value.');
+            expect(e.message).toBe('KeyConfig must have a IV value. Please, provide one IV value.');
         }
     });
 });
@@ -109,20 +109,20 @@ describe('Defining KeyConfig with zero and -1 timestamp value', () => {
         minSymbols: 2
     }
 
-    test('should throw RequiredError with message \'Timestamp value is required. KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.\'', () => {
         try {
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Timestamp value is required. KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.');
+            expect(e.message).toBe('KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.');
         }
     });
 
-    test('should throw RequiredError with message \'Timestamp value is required. KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.\'', () => {
         try {
             keyConfig.time = -1;
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Timestamp value is required. KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.');
+            expect(e.message).toBe('KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.');
         }
     });
 });
@@ -143,11 +143,11 @@ describe('Defining KeyConfig with empty keyword', () => {
         minSymbols: 2
     }
 
-    test('should throw RequiredError with message \'Keyword value is required. KeyConfig must have a keyword value. Please, provide a keyword.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a keyword value. Please, provide a keyword.\'', () => {
         try {
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Keyword value is required. KeyConfig must have a keyword value. Please, provide a keyword.');
+            expect(e.message).toBe('KeyConfig must have a keyword value. Please, provide a keyword.');
         }
     });
 });
@@ -168,20 +168,20 @@ describe('Defining KeyConfig with zero and -1 length value', () => {
         minSymbols: 2
     }
 
-    test('should throw RequiredError with message \'Password length is required. KeyConfig must have a password length value greater than or equals four. Please, provide a password length.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a password length value greater than or equals four. Please, provide a password length.\'', () => {
         try {
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Password length is required. KeyConfig must have a password length value greater than or equals four. Please, provide a password length.');
+            expect(e.message).toBe('KeyConfig must have a password length value greater than or equals four. Please, provide a password length.');
         }
     });
 
-    test('should throw RequiredError with message \'Password length is required. KeyConfig must have a password length value greater than or equals four. Please, provide a password length.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a password length value greater than or equals four. Please, provide a password length.\'', () => {
         try {
             keyConfig.length = -1;
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Password length is required. KeyConfig must have a password length value greater than or equals four. Please, provide a password length.');
+            expect(e.message).toBe('KeyConfig must have a password length value greater than or equals four. Please, provide a password length.');
         }
     });
 });
@@ -202,21 +202,21 @@ describe('Defining KeyConfig with zero and -1 minNumbers and minSymbols values',
         minSymbols: 0
     }
 
-    test('should throw RequiredError with message \'Minumum number of numbers is required. KeyConfig must have a minimum number of numbers value greater than or equals zero. Please, provide a minimum number of numbers.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a minimum number of numbers value greater than or equals zero. Please, provide a minimum number of numbers.\'', () => {
         try {
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Minumum number of numbers is required. KeyConfig must have a minimum number of numbers value greater than or equals zero. Please, provide a minimum number of numbers.');
+            expect(e.message).toBe('KeyConfig must have a minimum number of numbers value greater than or equals zero. Please, provide a minimum number of numbers.');
         }
     });
 
-    test('should throw RequiredError with message \'Minumum number of symbols is required. KeyConfig must have a minimum number of symbols value greater than or equals zero. Please, provide a minimum number of symbols.\'', () => {
+    test('should throw RequiredError with message \'KeyConfig must have a minimum number of symbols value greater than or equals zero. Please, provide a minimum number of symbols.\'', () => {
         try {
             keyConfig.minNumbers = 0;
             keyConfig.minSymbols = -1;
             PassJS(keyConfig, 'mySecretWord');
         } catch (e: any) {
-            expect(e.message).toBe('Minumum number of symbols is required. KeyConfig must have a minimum number of symbols value greater than or equals zero. Please, provide a minimum number of symbols.');
+            expect(e.message).toBe('KeyConfig must have a minimum number of symbols value greater than or equals zero. Please, provide a minimum number of symbols.');
         }
     });
 });

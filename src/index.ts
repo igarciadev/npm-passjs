@@ -4,6 +4,8 @@ import { KeyConfigJS } from './key-config';
 import { PassConfigJS } from './pass-config';
 import { RequiredError } from './required.error';
 
+import text from './index.text.json';
+
 class PasswordJS {
 
     private password: string;
@@ -212,54 +214,44 @@ export const PassJS = (keyConfig: KeyConfigJS, secret: string, passConfig?: Pass
     const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
     const EXCLUDED_SYMBOLS = '+=/';
 
-    const keyConfigError = 'keyConfig is required';
-    const secretError = 'Secret is required';
-    const saltError = 'Salt value is required. KeyConfig must have a salt value. Please, provide one salt value.';
-    const ivError = 'IV value is required. KeyConfig must have a IV value. Please, provide one IV value.';
-    const timeError = 'Timestamp value is required. KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.';
-    const keywordError = 'Keyword value is required. KeyConfig must have a keyword value. Please, provide a keyword.';
-    const passLengthError = 'Password length is required. KeyConfig must have a password length value greater than or equals four. Please, provide a password length.';
-    const minNumbersError = 'Minumum number of numbers is required. KeyConfig must have a minimum number of numbers value greater than or equals zero. Please, provide a minimum number of numbers.';
-    const minSymbolsError = 'Minumum number of symbols is required. KeyConfig must have a minimum number of symbols value greater than or equals zero. Please, provide a minimum number of symbols.';
-
     if (!keyConfig) {
-        throw new Error(keyConfigError);
+        throw new Error(text.keyConfigError);
     }
 
     if (!secret) {
-        throw new Error(secretError);
+        throw new Error(text.secretError);
     }
 
     if (!keyConfig.salt) {
-        throw new RequiredError(saltError);
+        throw new RequiredError(text.saltError);
     }
 
     if (!keyConfig.iv) {
-        throw new RequiredError(ivError);
+        throw new RequiredError(text.ivError);
     }
 
     if (keyConfig.time <= 0) {
-        throw new RequiredError(timeError);
+        throw new RequiredError(text.timeError);
     }
 
     if (!keyConfig.keyword) {
         if (!passConfig) {
-            throw new RequiredError(keywordError);
+            throw new RequiredError(text.keywordError);
         } else {
             keyConfig.keyword = passConfig.letters;
         }
     }
 
     if (keyConfig.length < 4) {
-        throw new RequiredError(passLengthError);
+        throw new RequiredError(text.passLengthError);
     }
 
     if (keyConfig.minNumbers < 0) {
-        throw new RequiredError(minNumbersError);
+        throw new RequiredError(text.minNumbersError);
     }
 
     if (keyConfig.minSymbols < 0) {
-        throw new RequiredError(minSymbolsError);
+        throw new RequiredError(text.minSymbolsError);
     }
 
     if (!passConfig) {
@@ -268,19 +260,6 @@ export const PassJS = (keyConfig: KeyConfigJS, secret: string, passConfig?: Pass
             numbers: NUMBERS,
             letters: LETTERS,
             excludedSymbols: EXCLUDED_SYMBOLS
-        }
-    } else {
-        if (!passConfig.symbols) {
-            passConfig.symbols = SYMBOLS;
-        }
-        if (!passConfig.numbers) {
-            passConfig.numbers = NUMBERS;
-        }
-        if (!passConfig.letters) {
-            passConfig.letters = LETTERS;
-        }
-        if (!passConfig.excludedSymbols) {
-            passConfig.excludedSymbols = EXCLUDED_SYMBOLS;
         }
     }
 

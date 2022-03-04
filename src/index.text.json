@@ -1,0 +1,11 @@
+{
+    "keyConfigError": "keyConfig is required",
+    "secretError": "Secret is required",
+    "saltError": "KeyConfig must have a salt value. Please, provide one salt value.",
+    "ivError": "KeyConfig must have a IV value. Please, provide one IV value.",
+    "timeError": "KeyConfig must have a timestamp value greater than zero. Please, provide one timestamp value.",
+    "keywordError": "KeyConfig must have a keyword value. Please, provide a keyword.",
+    "passLengthError": "KeyConfig must have a password length value greater than or equals four. Please, provide a password length.",
+    "minNumbersError": "KeyConfig must have a minimum number of numbers value greater than or equals zero. Please, provide a minimum number of numbers.",
+    "minSymbolsError": "KeyConfig must have a minimum number of symbols value greater than or equals zero. Please, provide a minimum number of symbols."
+}
