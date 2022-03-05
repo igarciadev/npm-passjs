@@ -81,6 +81,10 @@ console.log(password); // W@Nx0er0Yczutsz1
 
 ## Release notes
 
+### 1.0.8
+
+Minor changes.
+
 ### 1.0.0
 
 Base version.
