@@ -1,7 +1,6 @@
 import * as CryptoJS from 'crypto-js';
 
 import { KeyConfigJS } from './key-config';
-import { PassConfigJS } from './pass-config';
 import { RequiredError } from './required.error';
 
 import text from './index.text.json';
@@ -13,56 +12,72 @@ class PasswordJS {
     private numbers: string;
     private letters: string;
     private excludedSymbols: string;
+    private keyConfig: KeyConfigJS;
+    private secret: string;
 
-    constructor(passConfig: PassConfigJS) {
+    constructor(keyConfig: KeyConfigJS, secret: string) {
         this.password = '';
-        this.symbols = passConfig.symbols;
-        this.numbers = passConfig.numbers;
-        this.letters = passConfig.letters;
-        this.excludedSymbols = passConfig.excludedSymbols;
+        this.symbols = '!@#$%^&*';
+        this.numbers = '0123456789';
+        this.letters = 'abcdefghijklmnopqrstuvwxyz';
+        this.excludedSymbols = '+=/';
+        this.keyConfig = keyConfig;
+        this.secret = secret;
     }
 
-    generate(keyConfig: KeyConfigJS, secret: string): string {
+    generate(): string {
 
-        keyConfig = new KeyConfigJS(keyConfig);
+        this.keyConfig = new KeyConfigJS(this.keyConfig);
 
         if (!keyConfig.upper && !keyConfig.lower && !keyConfig.number && !keyConfig.symbol) {
             keyConfig.lower = true;
+        if (!this.keyConfig.upper && !this.keyConfig.lower && !this.keyConfig.number && !this.keyConfig.symbol) {
+            this.keyConfig.lower = true;
         }
 
         if (!keyConfig.upper && !keyConfig.lower && (!keyConfig.number || !keyConfig.symbol)) {
             keyConfig.minNumbers = keyConfig.length;
             keyConfig.minSymbols = keyConfig.length;
+        if (!this.keyConfig.upper && !this.keyConfig.lower && (!this.keyConfig.number || !this.keyConfig.symbol)) {
+            this.keyConfig.minNumbers = this.keyConfig.length;
+            this.keyConfig.minSymbols = this.keyConfig.length;
         }
 
         if (!keyConfig.lower && !keyConfig.upper) {
             const result = keyConfig.length - keyConfig.minNumbers - keyConfig.minSymbols;
+        if (!this.keyConfig.lower && !this.keyConfig.upper) {
+            const result = this.keyConfig.length - this.keyConfig.minNumbers - this.keyConfig.minSymbols;
             if (result > 0) {
-                keyConfig.minNumbers += result / 2;
-                keyConfig.minSymbols += result / 2;
+                this.keyConfig.minNumbers += result / 2;
+                this.keyConfig.minSymbols += result / 2;
                 if (result % 2 !== 0) {
-                    keyConfig.minNumbers += 0.5;
-                    keyConfig.minSymbols -= 0.5;
+                    this.keyConfig.minNumbers += 0.5;
+                    this.keyConfig.minSymbols -= 0.5;
                 }
             }
         }
 
-        this.password = this.encode(keyConfig, secret);
-        this.password = this.cut(keyConfig, this.password, secret);
+        this.password = this.encode(this.keyConfig, this.secret);
+        this.password = this.cut(this.keyConfig, this.password, this.secret);
         this.sanitize();
 
         if (keyConfig.lower && !keyConfig.upper) {
+        if (this.keyConfig.lower && !this.keyConfig.upper) {
             this.password = this.password.toLowerCase();
-        } else if (!keyConfig.lower && keyConfig.upper) {
+        } else if (!this.keyConfig.lower && this.keyConfig.upper) {
             this.password = this.password.toUpperCase();
         }
 
         if (keyConfig.number) {
             this.addNumbers(keyConfig);
+        if (this.keyConfig.number) {
+            this.addNumbers(this.keyConfig);
         }
 
         if (keyConfig.symbol) {
             this.addSymbols(keyConfig);
+        if (this.keyConfig.symbol) {
+            this.addSymbols(this.keyConfig);
         }
 
         return this.password;
@@ -81,6 +96,7 @@ class PasswordJS {
     private reorder(password: string, module: number): string {
 
         let newPassword = '';
+        
         for (let i = 0; i < password.length; i++) {
 
             if (i % module === 0) {
@@ -112,6 +128,7 @@ class PasswordJS {
 
             let count = 0;
             let position = -1;
+
             while (position < 0) {
                 position = this.password.indexOf(this.letters[count]);
                 if (position < 0) {
@@ -127,12 +144,14 @@ class PasswordJS {
         }
 
         let checkPass = this.password;
+
         for (let i = 0; i < this.numbers.length; i++) {
             checkPass = checkPass.replace(new RegExp(String(i), 'g'), '');
         }
 
         let upperCheck = false;
         let lowerCheck = false;
+
         checkPass.split('').forEach(m => {
             if (this.letters.toUpperCase().indexOf(m) >= 0 && !upperCheck) {
                 upperCheck = true;
@@ -193,6 +212,7 @@ class PasswordJS {
         }
 
         config.time += config.time;
+
         const minNumbers = config.minNumbers === 0 ? 1 : config.minNumbers;
         const minSymbols = config.minSymbols === 0 ? 1 : config.minSymbols;
 
@@ -207,12 +227,7 @@ class PasswordJS {
     }
 }
 
-export const PassJS = (keyConfig: KeyConfigJS, secret: string, passConfig?: PassConfigJS) => {
-
-    const SYMBOLS = '!@#$%^&*';
-    const NUMBERS = '0123456789';
-    const LETTERS = 'abcdefghijklmnopqrstuvwxyz';
-    const EXCLUDED_SYMBOLS = '+=/';
+export const PassJS = (keyConfig: KeyConfigJS, secret: string): string => {
 
     if (!keyConfig) {
         throw new Error(text.keyConfigError);
@@ -235,11 +250,7 @@ export const PassJS = (keyConfig: KeyConfigJS, secret: string, passConfig?: Pass
     }
 
     if (!keyConfig.keyword) {
-        if (!passConfig) {
-            throw new RequiredError(text.keywordError);
-        } else {
-            keyConfig.keyword = passConfig.letters;
-        }
+        throw new RequiredError(text.keywordError);
     }
 
     if (keyConfig.length < 4) {
@@ -254,15 +265,5 @@ export const PassJS = (keyConfig: KeyConfigJS, secret: string, passConfig?: Pass
         throw new RequiredError(text.minSymbolsError);
     }
 
-    if (!passConfig) {
-        passConfig = {
-            symbols: SYMBOLS,
-            numbers: NUMBERS,
-            letters: LETTERS,
-            excludedSymbols: EXCLUDED_SYMBOLS
-        }
-    }
-
-    const passwordJS = new PasswordJS(passConfig);
-    return passwordJS.generate(keyConfig, secret);
+    return new PasswordJS(keyConfig, secret).generate();
 }

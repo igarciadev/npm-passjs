@@ -1,6 +1,5 @@
 import { PassJS } from '../index';
 import { KeyConfigJS } from '../key-config';
-import { PassConfigJS } from '../pass-config';
 
 const SALT = '2qozlrz2s258m175i0j402k112owqik1';
 const IV = 'pi2150kj3763z7l0jt3o00l23uis7ljh';
@@ -237,14 +236,7 @@ describe('Defining KeyConfig object for test 1', () => {
         minSymbols: 2
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'0yX%xO^6\'', () => {
         expect(password).toEqual('0yX%xO^6');
@@ -283,14 +275,7 @@ describe('Defining KeyConfig object for test 2', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'UXu2R4rt\'', () => {
         expect(password).toEqual('UXu2R4rt');
@@ -329,14 +314,7 @@ describe('Defining KeyConfig object for test 3', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'XPoYiAcK\'', () => {
         expect(password).toEqual('XPoYiAcK');
@@ -375,14 +353,7 @@ describe('Defining KeyConfig object for test 4', () => {
         minSymbols: 2
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'V@xV5yr5$M8p202r\'', () => {
         expect(password).toEqual('V@xV5yr5$M8p202r');
@@ -421,14 +392,7 @@ describe('Defining KeyConfig object for test 5', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'56O2srS6yQzO0y2w\'', () => {
         expect(password).toEqual('56O2srS6yQzO0y2w');
@@ -467,14 +431,7 @@ describe('Defining KeyConfig object for test 6', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'zilHZXxvUXuCROrt\'', () => {
         expect(password).toEqual('zilHZXxvUXuCROrt');
@@ -513,14 +470,7 @@ describe('Defining KeyConfig object for test 7', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'zilhzxxvuxucrort\'', () => {
         expect(password).toEqual('zilhzxxvuxucrort');
@@ -559,14 +509,7 @@ describe('Defining KeyConfig object for test 8', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'04%^262&*&5^2$!2\'', () => {
         expect(password).toEqual('04%^262&*&5^2$!2');
@@ -605,14 +548,7 @@ describe('Defining KeyConfig object for test 9', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'5186478493555752\'', () => {
         expect(password).toEqual('5186478493555752');
@@ -651,14 +587,7 @@ describe('Defining KeyConfig object for test 10', () => {
         minSymbols: 16
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'&@^%^%&*^$*$%*&@\'', () => {
         expect(password).toEqual('&@^%^%&*^$*$%*&@');
@@ -697,14 +626,7 @@ describe('Defining KeyConfig object for test 11', () => {
         minSymbols: 5
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'25536342288\'', () => {
         expect(password).toEqual('25536342288');
@@ -743,14 +665,7 @@ describe('Defining KeyConfig object for test 12', () => {
         minSymbols: 4
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'T7qvT#v5%Qs5t234x6u!yu736wn^0v6v\'', () => {
         expect(password).toEqual('T7qvT#v5%Qs5t234x6u!yu736wn^0v6v');
@@ -789,14 +704,7 @@ describe('Defining KeyConfig object for test 13', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'K2xwU16y21ww2116rmwslwtpx6tu47wI\'', () => {
         expect(password).toEqual('K2xwU16y21ww2116rmwslwtpx6tu47wI');
@@ -835,14 +743,7 @@ describe('Defining KeyConfig object for test 14', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'smvXzAcFNZpvaufdrqbHuhcHayXixOog\'', () => {
         expect(password).toEqual('smvXzAcFNZpvaufdrqbHuhcHayXixOog');
@@ -881,14 +782,7 @@ describe('Defining KeyConfig object for test 15', () => {
         minSymbols: 8
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'t6W32yrPr768U4!341o*o1u1rz502r$001@z5OS8v1oyrwX#0wWuXYZUY4^#r%r2\'', () => {
         expect(password).toEqual('t6W32yrPr768U4!341o*o1u1rz502r$001@z5OS8v1oyrwX#0wWuXYZUY4^#r%r2');
@@ -927,14 +821,7 @@ describe('Defining KeyConfig object for test 16', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'w204V64kyu23twwM6vov31MJTu8vzO3pT7qPT7vz7lsLty37xvu5yN7260nO0t6N\'', () => {
         expect(password).toEqual('w204V64kyu23twwM6vov31MJTu8vzO3pT7qPT7vz7lsLty37xvu5yN7260nO0t6N');
@@ -973,14 +860,7 @@ describe('Defining KeyConfig object for test 17', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'BVyZfDaPMDxIEbIyJUAxCbivxEhlEPoqUDAecdsEQXfrOfmQEtquStjmGSzPNrgO\'', () => {
         expect(password).toEqual('BVyZfDaPMDxIEbIyJUAxCbivxEhlEPoqUDAecdsEQXfrOfmQEtquStjmGSzPNrgO');
@@ -1019,14 +899,7 @@ describe('Defining KeyConfig object for test 18', () => {
         minSymbols: 16
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'v13Sur34wz1^Q287y0x6vx0$2%2&51v1QR^uZwY2S1UZX*R3V8&q1zx81xYw30*y8wq31021ww^9TwT1V2zXx19z5v&1zWs014z*$zv$5%s5Zs1@TYyt7S9sVx0q#Q6T\'', () => {
         expect(password).toEqual('v13Sur34wz1^Q287y0x6vx0$2%2&51v1QR^uZwY2S1UZX*R3V8&q1zx81xYw30*y8wq31021ww^9TwT1V2zXx19z5v&1zWs014z*$zv$5%s5Zs1@TYyt7S9sVx0q#Q6T');
@@ -1065,14 +938,7 @@ describe('Defining KeyConfig object for test 19', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'Mw417Tu21O0u20slpxyVtsW02trOrw6qUlkp4qo1o1uRr5512UKo0ukm5xS2v7o0r6X30yWPX7Z8Y4j3r1rMx1T1qz602r6031wz7O5I012yzwqNTw3uxYjUM4IkyKk2\'', () => {
         expect(password).toEqual('Mw417Tu21O0u20slpxyVtsW02trOrw6qUlkp4qo1o1uRr5512UKo0ukm5xS2v7o0r6X30yWPX7Z8Y4j3r1rMx1T1qz602r6031wz7O5I012yzwqNTw3uxYjUM4IkyKk2');
@@ -1111,14 +977,7 @@ describe('Defining KeyConfig object for test 20', () => {
         minSymbols: 0
     }
 
-    const passConfig: PassConfigJS = {
-        symbols: '!@#$%^&*',
-        numbers: '0123456789',
-        letters: 'abcdefghijklmnopqrstuvwxyz',
-        excludedSymbols: '+=/'
-    }
-
-    const password = PassJS(keyConfig, 'mySecretWord', passConfig);
+    const password = PassJS(keyConfig, 'mySecretWord');
 
     test('Password generated is \'EEplcPvqcDvemdvEhXYrpfBQmtZuctHmyScPdrAOubzzKwmCgvSocuAyKxcKLZszdoqrvwyQTuKzsxYKlxvpFbOkbWzffyqBkFmPdmSaAuxcBmyxfgalMxxJEtIeJyAB\'', () => {
         expect(password).toEqual('EEplcPvqcDvemdvEhXYrpfBQmtZuctHmyScPdrAOubzzKwmCgvSocuAyKxcKLZszdoqrvwyQTuKzsxYKlxvpFbOkbWzffyqBkFmPdmSaAuxcBmyxfgalMxxJEtIeJyAB');
