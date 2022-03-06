@@ -1,60 +1,67 @@
 {
-  "name": "passjs-generator",
-  "version": "1.0.7",
-  "description": "Simple and lightweight library to generate unique, secure, recoverable and customizable cryptographic passwords.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "test": "jest --config jestconfig.json",
-    "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/igarciadev/npm-passjs.git"
-  },
-  "keywords": [
-    "password",
-    "pass",
-    "generator",
-    "random",
-    "secure",
-    "unique",
-    "password generator",
-    "random password",
-    "strong password",
-    "recoverable password",
-    "customizable password",
-    "secure password",
-    "crypto",
-    "cryptographic password"
-  ],
-  "author": "Isaac García",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/igarciadev/npm-passjs/issues"
-  },
-  "homepage": "https://github.com/igarciadev/npm-passjs#readme",
-  "dependencies": {
-    "crypto-js": "^4.1.1"
-  },
-  "devDependencies": {
-    "@types/crypto-js": "^4.1.0",
-    "@types/jest": "^27.4.0",
-    "jest": "^27.5.1",
-    "prettier": "^2.5.1",
-    "ts-jest": "^27.1.3",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.5.5"
-  },
-  "files": [
-    "lib/**/*"
-  ]
+    "name": "passjs-generator",
+    "version": "1.0.7",
+    "description": "Simple and lightweight library to generate unique, secure, recoverable and customizable cryptographic passwords.",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "test": "jest --config jestconfig.json --coverage",
+        "build": "tsc",
+        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+        "lint": "tslint -p tsconfig.json",
+        "prepare": "npm run build",
+        "prepublishOnly": "npm test && npm run lint",
+        "preversion": "npm run lint",
+        "version": "npm run format && git add -A src",
+        "postversion": "git push && git push --tags"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/igarciadev/npm-passjs.git"
+    },
+    "keywords": [
+        "password",
+        "pass",
+        "generator",
+        "random",
+        "secure",
+        "unique",
+        "password generator",
+        "random password",
+        "strong password",
+        "recoverable password",
+        "customizable password",
+        "secure password",
+        "crypto",
+        "cryptographic password"
+    ],
+    "author": "Isaac García",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/igarciadev/npm-passjs/issues"
+    },
+    "homepage": "https://github.com/igarciadev/npm-passjs#readme",
+    "dependencies": {
+        "crypto-js": "^4.1.1"
+    },
+    "devDependencies": {
+        "@types/crypto-js": "^4.1.0",
+        "@types/jest": "^27.4.0",
+        "jest": "^27.5.1",
+        "prettier": "^2.5.1",
+        "ts-jest": "^27.1.3",
+        "tslint": "^6.1.3",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^4.5.5"
+    },
+    "files": [
+        "lib/**/*"
+    ],
+    "jest": {
+        "collectCoverage": true,
+        "coverageReporters": [
+            "json",
+            "html"
+        ]
+    }
 }
