@@ -1,5 +1,8 @@
 # PassJS-Generator
 
+ ![COVERAGE](https://img.shields.io/badge/coverage-100%25-green) ![TEST](https://img.shields.io/badge/passed%20test-130-blue) ![NPM](https://img.shields.io/npm/l/passjs-generator)
+
+
 Simple and lightweight library to generate unique, secure, recoverable and customizable cryptographic passwords.
 
 ## Install
