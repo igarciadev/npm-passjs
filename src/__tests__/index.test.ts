@@ -999,3 +999,159 @@ describe('Defining KeyConfig object for test 20', () => {
         expect(countSymbols(password)).toBeGreaterThanOrEqual(0);
     });
 });
+
+describe('Defining KeyConfig object for test 21', () => {
+
+    const keyConfig: KeyConfigJS = {
+        salt: SALT,
+        iv: IV,
+        time: TIME,
+        keyword: 'myKeyword',
+        upper: false,
+        lower: false,
+        number: true,
+        symbol: true,
+        length: 15,
+        minNumbers: 0,
+        minSymbols: 0
+    }
+
+    const password = PassJS(keyConfig, 'mySecretWord');
+
+    test('Password generated is \'3&!2%33^0^&%245\'', () => {
+        expect(password).toEqual('3&!2%33^0^&%245');
+    });
+
+    test('Password has 15 characters...', () => {
+        expect(password.length).toEqual(15);
+    });
+
+    test('... which 0 are letters', () => {
+        expect(countLetters(password)).toEqual(0);
+    });
+
+    test('... which 8 are numbers', () => {
+        expect(countNumbers(password)).toEqual(8);
+    });
+
+    test('... which 7 are symbols', () => {
+        expect(countSymbols(password)).toBeGreaterThanOrEqual(7);
+    });
+});
+
+describe('Defining KeyConfig object for test 22', () => {
+
+    const keyConfig: KeyConfigJS = {
+        salt: SALT,
+        iv: IV,
+        time: TIME,
+        keyword: 'myKeyword',
+        upper: true,
+        lower: false,
+        number: false,
+        symbol: false,
+        length: 16,
+        minNumbers: 0,
+        minSymbols: 0
+    }
+
+    const password = PassJS(keyConfig, 'mySecretWord');
+
+    test('Password generated is \'ZILHZXXVUXUCRORT\'', () => {
+        expect(password).toEqual('ZILHZXXVUXUCRORT');
+    });
+
+    test('Password has 16 characters...', () => {
+        expect(password.length).toEqual(16);
+    });
+
+    test('... which 16 are letters', () => {
+        expect(countLetters(password)).toEqual(16);
+    });
+
+    test('... which 0 are numbers', () => {
+        expect(countNumbers(password)).toEqual(0);
+    });
+
+    test('... which 0 are symbols', () => {
+        expect(countSymbols(password)).toBeGreaterThanOrEqual(0);
+    });
+});
+
+describe('Defining KeyConfig object for test 23', () => {
+
+    const keyConfig: KeyConfigJS = {
+        salt: SALT,
+        iv: IV,
+        time: TIME,
+        keyword: 'myKeyword',
+        upper: true,
+        lower: true,
+        number: true,
+        symbol: false,
+        length: 16,
+        minNumbers: 14,
+        minSymbols: 0
+    }
+
+    const password = PassJS(keyConfig, 'mySecretWord');
+
+    test('Password generated is \'4021811U9487y181\'', () => {
+        expect(password).toEqual('4021811U9487y181');
+    });
+
+    test('Password has 16 characters...', () => {
+        expect(password.length).toEqual(16);
+    });
+
+    test('... which 2 are letters', () => {
+        expect(countLetters(password)).toEqual(2);
+    });
+
+    test('... which 14 are numbers', () => {
+        expect(countNumbers(password)).toEqual(14);
+    });
+
+    test('... which 0 are symbols', () => {
+        expect(countSymbols(password)).toBeGreaterThanOrEqual(0);
+    });
+});
+
+describe('Defining KeyConfig object for test 24', () => {
+
+    const keyConfig: KeyConfigJS = {
+        salt: SALT,
+        iv: IV,
+        time: TIME,
+        keyword: 'myKeyword',
+        upper: true,
+        lower: true,
+        number: true,
+        symbol: false,
+        length: 18,
+        minNumbers: 14,
+        minSymbols: 0
+    }
+
+    const password = PassJS(keyConfig, 'mySecretWord');
+
+    test('Password generated is \'042773w9X9038U930T\'', () => {
+        expect(password).toEqual('042773w9X9038U930T');
+    });
+
+    test('Password has 18 characters...', () => {
+        expect(password.length).toEqual(18);
+    });
+
+    test('... which 4 are letters', () => {
+        expect(countLetters(password)).toEqual(4);
+    });
+
+    test('... which 14 are numbers', () => {
+        expect(countNumbers(password)).toEqual(14);
+    });
+
+    test('... which 0 are symbols', () => {
+        expect(countSymbols(password)).toBeGreaterThanOrEqual(0);
+    });
+});
