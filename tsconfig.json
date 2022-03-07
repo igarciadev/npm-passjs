@@ -3,8 +3,17 @@
         "target": "es5",
         "module": "commonjs",
         "declaration": true,
+        "lib": [
+            "ES2015",
+            "DOM"
+        ],
         "outDir": "./lib",
-        "strict": true
+        "strict": true,
+        "sourceMap": true,
+        "rootDir": "./src",
+        "esModuleInterop": true,
+        "noEmitOnError": true,
+        "resolveJsonModule": true
     },
     "include": [
         "src"
