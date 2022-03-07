@@ -96,7 +96,7 @@ class PasswordJS {
     private reorder(password: string, module: number): string {
 
         let newPassword = '';
-        
+
         for (let i = 0; i < password.length; i++) {
 
             if (i % module === 0) {
@@ -124,7 +124,7 @@ class PasswordJS {
 
     private addNumbers(keyConfig: KeyConfigJS): void {
 
-        for (let i = 0; i < keyConfig?.minNumbers || 0; i++) {
+        for (let i = 0; i < keyConfig.minNumbers; i++) {
 
             let count = 0;
             let position = -1;
@@ -228,10 +228,6 @@ class PasswordJS {
 }
 
 export const PassJS = (keyConfig: KeyConfigJS, secret: string): string => {
-
-    if (!keyConfig) {
-        throw new Error(text.keyConfigError);
-    }
 
     if (!secret) {
         throw new Error(text.secretError);

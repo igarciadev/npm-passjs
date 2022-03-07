@@ -11,17 +11,17 @@ export class KeyConfigJS {
     minNumbers: number;
     minSymbols: number;
 
-    constructor(init?: Partial<KeyConfigJS>) {
-        this.salt = init?.salt || '';
-        this.iv = init?.iv || '';
-        this.time = init?.time || 0;
-        this.keyword = init?.keyword || '';
-        this.upper = init?.upper || false;
-        this.lower = init?.lower || false;
-        this.number = init?.number || false;
-        this.symbol = init?.symbol || false;
-        this.length = init?.length || 0;
-        this.minNumbers = init?.minNumbers || 0;
-        this.minSymbols = init?.minSymbols || 0;
+    constructor(keyConfig: KeyConfigJS) {
+        this.salt = keyConfig.salt;
+        this.iv = keyConfig.iv;
+        this.time = keyConfig.time;
+        this.keyword = keyConfig.keyword;
+        this.upper = keyConfig.upper;
+        this.lower = keyConfig.lower;
+        this.number = keyConfig.number;
+        this.symbol = keyConfig.symbol;
+        this.length = keyConfig.length;
+        this.minNumbers = keyConfig.minNumbers;
+        this.minSymbols = keyConfig.minSymbols;
     }
 }
